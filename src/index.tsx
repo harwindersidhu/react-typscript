@@ -6,9 +6,19 @@ interface AppProps {
   // color?: string; //We can make it optional using ? 
 }
 
-class App extends React.Component<AppProps> {
-  state = { counter: 0 };
-  
+interface AppState {
+  counter: number;
+}
+
+class App extends React.Component<AppProps, AppState> {
+  // state = { counter: 0 };
+ 
+  constructor(props: AppProps) {
+    super(props);
+
+    this.state = { counter: 0 };
+  }
+
   onIncrement = (): void => {
     this.setState({ counter: this.state.counter + 1 });
   };
